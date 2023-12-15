@@ -1,5 +1,6 @@
 package com.hexagonalddd.hexagonalarchtecture.api.dto.beneficiario;
 
+
 import com.hexagonalddd.hexagonalarchtecture.model.entities.Documento;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +8,6 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -20,7 +20,7 @@ public class BeneficiarioResponse implements Serializable {
     private static final String CAMPO_OBRIGATORIO = "Campo Obrigatório";
 
     @NotNull(message = CAMPO_OBRIGATORIO )
-    private Long id;
+    private String id;
 
     @NotEmpty(message = CAMPO_OBRIGATORIO)
     private String nome;
@@ -30,6 +30,9 @@ public class BeneficiarioResponse implements Serializable {
     private LocalDate dataNascimento;
 
     private LocalDate dataInclusao;
+
     private LocalDate dataAtualizacao;
+
+    private Set<Documento> documentos;
 
 }

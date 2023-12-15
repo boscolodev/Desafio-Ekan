@@ -26,19 +26,5 @@ public class Documento implements Serializable {
     private LocalDate dataInclusao;
     private LocalDate dataAtualizacao;
 
-    @ManyToOne
-    @JoinColumn(name = "beneficiario_id", nullable = false)
-    private Beneficiario beneficiario;
-
-    @PrePersist
-    public void prePersistDataInclusao() {
-        this.dataInclusao = LocalDate.now();
-    }
-
-    @PreUpdate
-    public void preUpdateDataAtualizacao() {
-        this.dataAtualizacao = LocalDate.now();
-    }
-
 
 }

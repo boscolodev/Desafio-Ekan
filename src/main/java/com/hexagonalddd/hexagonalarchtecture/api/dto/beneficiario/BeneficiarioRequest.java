@@ -1,11 +1,15 @@
 package com.hexagonalddd.hexagonalarchtecture.api.dto.beneficiario;
 
+
+import com.hexagonalddd.hexagonalarchtecture.model.entities.Documento;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,5 +29,7 @@ public class BeneficiarioRequest implements Serializable {
 
     private LocalDate dataInclusao;
     private LocalDate dataAtualizacao;
+
+    private Set<Documento> documentos = new HashSet<>();
 
 }

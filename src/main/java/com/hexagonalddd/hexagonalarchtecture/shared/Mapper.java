@@ -3,16 +3,16 @@ package com.hexagonalddd.hexagonalarchtecture.shared;
 import org.modelmapper.ModelMapper;
 
 public class Mapper {
-    private static ModelMapper mapper = null;
+    private static ModelMapper instance = null;
 
     private Mapper() {
     }
 
     private static ModelMapper getMapper() {
-        if (mapper == null) {
-            mapper = new ModelMapper();
+        if (instance == null) {
+            instance = new ModelMapper();
         }
-        return mapper;
+        return instance;
     }
 
     public static <T> T converte(Object origin, Class<T> destiny) {

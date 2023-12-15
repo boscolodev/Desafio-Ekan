@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 public interface BeneficiarioRepositoryGateway {
 
     void insert(final BeneficiarioRequest request);
-    void delete(final Long id);
-    void update(final Long id, final BeneficiarioRequest request);
+    void delete(final String id);
+    void update(final String id, final BeneficiarioRequest request);
     Page<BeneficiarioResponse> findAll(Pageable pageable);
-    BeneficiarioResponse findById(final Long id);
+    BeneficiarioResponse findById(final String id);
 
 }

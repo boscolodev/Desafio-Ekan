@@ -1,10 +1,6 @@
 package com.hexagonalddd.hexagonalarchtecture.api.dto.documento;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
@@ -25,14 +21,7 @@ public class DocumentoRequest implements Serializable {
     @NotEmpty(message = CAMPO_OBRIGATORIO )
     private String descricao;
 
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataInclusao;
-
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAtualizacao;
 
 }

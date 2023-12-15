@@ -7,6 +7,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,15 +19,19 @@ import java.util.Set;
 public class Beneficiario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id = UUID.randomUUID().toString();
+
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String telefone;
+    @Column(nullable = false)
     private LocalDate dataNascimento;
     private LocalDate dataInclusao;
     private LocalDate dataAtualizacao;
 
-    @OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "beneficiario_id") // Adicionando esta linha para indicar a chave estrangeira
     private Set<Documento> documentos = new HashSet<>();
 
 }
